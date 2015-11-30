@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Gem for RG courses}
   spec.description   = %q{A game codebreaker to find out 4 numbers}
-  spec.homepage      = "http://page"
+  spec.homepage      = "https://rubygems.org/profiles/kolyastepanets"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
