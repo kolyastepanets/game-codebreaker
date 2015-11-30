@@ -20,7 +20,7 @@ Or install it yourself as:
 
 ## For playing in console
 
-    Run file ```run.rb```
+Run file ```run.rb```
 
 ## Development
 
