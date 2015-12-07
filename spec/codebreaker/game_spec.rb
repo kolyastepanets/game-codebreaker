@@ -62,44 +62,44 @@ module Codebreaker
       # end
 
       it "returns values" do
-        expect(game.guess_code("1234")).to eq(["+","+","+","+"])
+        expect(game.guess_code("1234")).to eq("++++")
       end
 
       it "returns values" do
-        expect(game.guess_code("4321")).to eq(["-","-","-","-"])
+        expect(game.guess_code("4321")).to eq("----")
       end
 
       it "returns values" do
-        expect(game.guess_code("1235")).to eq(["+","+","+"])
+        expect(game.guess_code("1235")).to eq("+++")
       end
 
       it "returns values" do
-        expect(game.guess_code("5555")).to eq([])
+        expect(game.guess_code("5555")).to eq("")
       end
 
       it "returns values" do
         game.instance_variable_set(:@secret_code, [1,5,5,5])
-        expect(game.guess_code("2131")).to eq(["-"])
+        expect(game.guess_code("2131")).to eq("-")
       end
 
       it "returns values" do
-        expect(game.guess_code("2555")).to eq(["-"])
+        expect(game.guess_code("2555")).to eq("-")
       end
 
       it "returns values" do
-        expect(game.guess_code("1355")).to eq(["+", "-"])
+        expect(game.guess_code("1355")).to eq("+-")
       end
 
       it "returns values" do
-        expect(game.guess_code("1243")).to eq(["+","+","-","-"])
+        expect(game.guess_code("1243")).to eq("++--")
       end
 
       it "returns values" do
-        expect(game.guess_code("5554")).to eq(["+"])
+        expect(game.guess_code("5554")).to eq("+")
       end
 
       it "returns values" do
-        expect(game.guess_code("5545")).to eq(["-"])
+        expect(game.guess_code("5545")).to eq("-")
       end
 
     end
@@ -109,7 +109,7 @@ module Codebreaker
       it "opens random number in the secret code" do
         game.instance_variable_set(:@secret_code, "1234")
         game.instance_variable_set(:@rand_index, 0)
-        expect(game.hint).to eq(["1","*","*","*"])
+        expect(game.hint).to eq("1***")
       end
 
       it "decreases hints by one" do

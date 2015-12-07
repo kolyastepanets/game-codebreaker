@@ -48,7 +48,7 @@ module Codebreaker
       #   @win
       # end
 
-      result
+      result.join
     end
 
     def hint
@@ -57,7 +57,7 @@ module Codebreaker
       secret_code = @secret_code
       result = ["*","*","*","*"]
       result[@rand_index] = secret_code[@rand_index]
-      result
+      result.join
     end
 
     def save_to_file(user)

@@ -30,34 +30,40 @@ module Codebreaker
 
     def guess(answer)
       if @game.attempts > 1
-        res = @game.guess_code(answer)
-          if res == ["+", "+", "+", "+"]
-            p res
-            puts "Huraaah"
-            game_over
-          else
-            p res
-            puts "Left attempts: #{@game.attempts}"
-            puts "-------------------"
-            attempt
-          end
+        possible_win(answer)
       else
-        res = @game.guess_code(answer)
-          if res == ["+", "+", "+", "+"]
-            p res
-            puts "Huraaah"
-            game_over
-          else
-            p res
-            game_over
-          end
+        last_attempt(answer)
       end
+    end
+
+    def possible_win(answer)
+      res = @game.guess_code(answer)
+        if res == "++++"
+          p res
+          win_message
+          game_over
+        else
+          p res
+          left_attempts_message
+          attempt
+        end
+    end
+
+    def last_attempt(answer)
+      res = @game.guess_code(answer)
+        if res == "++++"
+          p res
+          win_message
+          game_over
+        else
+          p res
+          game_over
+        end
     end
 
     def hint
       if @game.hints > 0
-        hint = @game.hint
-        p hint
+        p @game.hint
         attempt
       else
         puts "There is no hints avaliable"
@@ -74,6 +80,15 @@ module Codebreaker
       puts "Do you want to play again? Press y/n"
       answer = gets.chomp
       start_game if answer == "y"
+    end
+
+    def win_message
+      puts 'Huraaah'
+    end
+
+    def left_attempts_message
+      puts "Left attempts: #{@game.attempts}"
+      puts "-------------------"
     end
 
   end
