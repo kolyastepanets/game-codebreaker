@@ -1,7 +1,7 @@
 module Codebreaker
   class Game
 
-    attr_reader :hints, :attempts
+    attr_reader :hints, :attempts, :win
 
     def initialize(hints = 1, attempts = 10)
       @hints = hints
@@ -42,13 +42,14 @@ module Codebreaker
         end
       end
 
-      # if result == ["+", "+", "+", "+"]
-      #   @win = true
-      # else
-      #   @win
-      # end
+      @win = true if result == ["+","+","+","+"]
 
-      result.join
+      if result.empty?
+        result << "No matches"
+        result.join
+      else
+        result.join
+      end
     end
 
     def hint

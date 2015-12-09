@@ -74,7 +74,7 @@ module Codebreaker
       end
 
       it "returns values" do
-        expect(game.guess_code("5555")).to eq("")
+        expect(game.guess_code("5555")).to eq("No matches")
       end
 
       it "returns values" do
